@@ -1,0 +1,15 @@
+{
+  "name": "game-dev",
+  "version": "0.0.1",
+  "description": "test-game-dev",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "start ./src/index.html"
+  },
+  "keywords": [
+    "game-dev"
+  ],
+  "author": "Makovskyj V.",
+  "license": "ISC"
+}
