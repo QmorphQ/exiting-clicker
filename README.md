@@ -13,4 +13,4 @@ practice-exam
 7. The game should be hosted on GitHub so that other people can play it and review your code.
 
 ### To try out the game you may watch [DEMO](https://exiting-clicker-oq5h.vercel.app/) or dowload it locally and just run index.html or if you are using Node JS you may type in any CLI (PowerShell for the instance) `npm run start`.
-As there was juast a little of time to implement all tasks solutions many neccesarry features left behind.
+As there was juast a little of time to implement all tasks solutions many neccesarry features left behind (currently in the menu works only new game option; other are left for the future updates).
