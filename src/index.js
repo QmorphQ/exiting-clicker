@@ -95,6 +95,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
     },
     down() {
       cover.classList.add("down");
+      modalBtn.disabled = true;
+      setTimeout(() => (modalBtn.disabled = false), 2000);
       coverIsDown = true;
     },
     up() {
@@ -139,9 +141,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
     modalWindow.classList.add("disabled");
   }
 
-  function showProlog() {
+  function showProlog(n) {
     modalWindow.classList.remove("disabled");
-    modalContent.innerHTML = `<h2>Congratulations!</h2> <p>You beaten all enemies</p>`;
+    modalContent.innerHTML = `<h2>Congratulations!</h2> <p>You beaten all enemies. Your total score is ${n}</p>`;
     modalBtn.innerText = "Back to the menu";
     modalBtn.addEventListener(
       "click",
@@ -150,6 +152,13 @@ document.addEventListener("DOMContentLoaded", (e) => {
       },
       { once: true }
     );
+  }
+
+  function getUser() {
+    return JSON.parse(localStorage.getItem("user"));
+  }
+  function setUser(name, email) {
+    localStorage.setItem("user", JSON.stringify({ name, email }));
   }
   // * =================================================
   // ? is it first time:
@@ -161,13 +170,14 @@ document.addEventListener("DOMContentLoaded", (e) => {
   }
   // * =================================================
   // ? is profile created:
-  if (localStorage.getItem("user")) {
-    const user = JSON.parse(localStorage.getItem("user"));
+  if (getUser()) {
+    const user = getUser();
     profile.textContent = user.name;
     profile.classList.remove("disabled");
   }
 
   // * =================================================
+  // * Events:
   // ? click on greet btn:
   function greetBtnHandler(e) {
     console.log("greet btn clicked");
@@ -178,13 +188,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   // * =================================================
   // ? click on registration form btn:
   function registrationFormBtnHandler(e) {
-    e.preventDefault();
-    console.log("form btn clicked");
-    localStorage.setItem(
-      "user",
-      JSON.stringify({ name: nameInput.value, email: emailInput.value })
-    );
-    location.reload();
+    setUser(nameInput.value, emailInput.value);
   }
   registrationFormBtn.addEventListener("click", registrationFormBtnHandler);
   // * =================================================
@@ -208,7 +212,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
   menu.addEventListener("click", (e) => {
     const target = e.target;
     if (target.getAttribute("id") === "start") {
-      console.log("start");
+      if (!getUser()) {
+        registrationForm.classList.remove("disabled");
+        return null;
+      }
       coverActs.shift();
       setTimeout(() => game.start(), 2000);
     }
@@ -245,7 +252,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
           coverActs.down();
           if (+lvl + 2 > 5) {
             modalBtn.removeEventListener("click", modalBtnHandler);
-            showProlog();
+            showProlog(currentScore);
             return null;
           }
           showProgress(+lvl + 2);
@@ -259,11 +266,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
   // * =================================================
   // ? click on modalBtn:
   function modalBtnHandler(e) {
-    if (coverIsDown) {
-      game.start();
-      coverActs.up();
-      closeModal();
-    }
+    game.start();
+    coverActs.up();
+    closeModal();
   }
   modalBtn.addEventListener("click", modalBtnHandler);
   // * =================================================
