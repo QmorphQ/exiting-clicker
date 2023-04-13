@@ -33,41 +33,58 @@
           </p>
           <button id="greet-btn" class="btn greet__btn">sign up</button>
         </div>
-        <form data-closeable id="registration-form" class="registration disabled abs-centered">
-            <div id="close-btn" class="close"></div>
-            <h2 class="registration__title title">Registration</h2>
+        <form
+          data-closeable
+          id="registration-form"
+          class="registration disabled abs-centered"
+        >
+          <div id="close-btn" class="close"></div>
+          <h2 class="registration__title title">Registration</h2>
           <label for="name"
             >Full Name
-            <input class="cus-input" name="name" id="name" type="text" required/>
+            <input
+              class="cus-input"
+              name="name"
+              id="name"
+              type="text"
+              required
+            />
           </label>
           <label for="email"
             >Email
-            <input class="cus-input" name="email" id="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required/>
+            <input
+              class="cus-input"
+              name="email"
+              id="email"
+              type="email"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              required
+            />
           </label>
           <button id="form-btn" class="btn registration__btn">submit</button>
         </form>
         <div id="menu" class="game-menu">
-            <ul class="game-menu__list-options">
-                <li class="game-menu__option"><a id="start">New Game</a></li>
-                <li class="game-menu__option">Continue</li>
-                <li class="game-menu__option">Options</li>
-                <li class="game-menu__option">Intro</li>
-                <li class="game-menu__option">Help</li>
-                <li class="game-menu__option">Log Out</li>
-                <li class="game-menu__option">v. 1.0.1</li>
-            </ul>
+          <ul class="game-menu__list-options">
+            <li class="game-menu__option"><a id="start">New Game</a></li>
+            <li class="game-menu__option">Continue</li>
+            <li class="game-menu__option">Options</li>
+            <li class="game-menu__option">Intro</li>
+            <li class="game-menu__option">Help</li>
+            <li class="game-menu__option">Log Out</li>
+            <li class="game-menu__option">v. 1.0.1</li>
+          </ul>
         </div>
-       
+
         <div id="cover" class="cover"></div>
         <div id="enemy" class="enemy abs-centered disabled"></div>
         <div id="game-bar" class="game-bar disabled">
-            <span id="user">Player: <span id="user-name"></span></span>
-            <span id="score">Score: <span id="current-score">0</span></span>
-            <span id="level">Lvl: <span id="current-level">0</span></span>
+          <span id="user">Player: <span id="user-name"></span></span>
+          <span id="score">Score: <span id="current-score">0</span></span>
+          <span id="level">Lvl: <span id="current-level">0</span></span>
         </div>
         <div id="modal-window" class="modal-window abs-centered disabled">
-            <p id="modal-content" class="modal-window__content"></p>
-            <button id="modal-btn" class="btn modal-window__btn">next</button>
+          <p id="modal-content" class="modal-window__content"></p>
+          <button id="modal-btn" class="btn modal-window__btn">next</button>
         </div>
       </div>
     </div>
