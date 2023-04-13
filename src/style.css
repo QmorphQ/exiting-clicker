@@ -90,11 +90,6 @@
   padding: 0.4rem;
   border-radius: 5px;
 }
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
 
 .board {
   width: 1500px;
@@ -117,7 +112,6 @@
   margin-top: 3rem;
   background-image: url("./img/crown.png");
   background-repeat: no-repeat;
-  /*background-position: center;*/
   background-position: top;
   padding: 70px;
 }
@@ -189,8 +183,7 @@
   border: none;
   outline: 1px solid var(--color-error);
 }
-.registration__btn {
-}
+
 /* menu game */
 .game-menu {
   width: fit-content;
@@ -199,8 +192,7 @@
   margin-left: 200px;
   margin-top: 100px;
 }
-.game-menu__title {
-}
+
 .game-menu__list-options {
   list-style-type: none;
   padding: 0;
@@ -286,16 +278,23 @@
   align-items: center;
   gap: 1rem;
 }
-.modal-window p, h2 {
-    text-align: center;
-    margin: 0;
+.modal-window p,
+h2 {
+  text-align: center;
+  margin: 0;
 }
-.modal-window__btn {
 
+/*  */
+@media screen and (max-width: 480px) {
+  .game-title {
+    font-size: 4rem;
+  }
+  .game-menu {
+    margin: auto;
+  }
 }
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
+@media screen and (max-width: 800px) {
+  .game-title {
+    font-size: 5rem;
+  }
+}
