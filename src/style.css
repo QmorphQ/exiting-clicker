@@ -233,11 +233,6 @@
   border-bottom: 20px solid rgb(74, 74, 74);
   z-index: 100000;
 }
-/* test */
-#test {
-  position: absolute;
-  z-index: 100;
-}
 /* enemy */
 .enemy {
   width: 600px;
@@ -259,11 +254,12 @@
   left: 0;
   color: var(--color-warn);
   font-size: 2rem;
-  padding: 2rem;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10rem;
+  margin-top: 2rem;
 }
 .modal-window {
   width: 400px;
@@ -284,7 +280,7 @@ h2 {
   margin: 0;
 }
 
-/*  */
+/* @media */
 @media screen and (max-width: 480px) {
   .game-title {
     font-size: 4rem;
@@ -292,9 +288,17 @@ h2 {
   .game-menu {
     margin: auto;
   }
+  .game-bar {
+    font-size: 12px;
+    justify-content: space-around;
+    gap: 1rem;
+  }
 }
 @media screen and (max-width: 800px) {
   .game-title {
     font-size: 5rem;
+  }
+  .game-bar {
+    font-size: 14px;
   }
 }
